@@ -1,40 +1,40 @@
-<div class="match">
-    <div class="row mt-4">
+<div class="similar">
+    <div class="row mx-0 mt-4">
         <div class="col-8">
             <h4>12 New Members Who match your profile information</h4>
         </div>
-        <div class="icons col-4">
+        <div class="col-4">
             <button mat-raised-button>
                 <mat-icon>edit</mat-icon> Edit
             </button>
         </div>
     </div>
     <div class="row">
-        <div class="col-md-3" *ngFor="let item of profileList; index as i">
-            <div class="cardWrapper shadow px-2 bg-white rounded">
-                <div class="card-flex">
-                    <div class="card_img">
-                        <img class="ms-2 mt-3" src="https://picsum.photos/300/200/?random={{ i + imgCount}}"
+        <div class="col-md-6" *ngFor="let item of userList; index as i">
+            <div class="classWrapper shadow px-2 bg-white rounded">
+                <div class="card-size">
+                    <div class="card_image">
+                        <img class="ms-2 mt-3" src={{item.imgUrl}}
                             alt="Card image">
                     </div>
-                    <div class="card-description ">
-                        <div class="card_title">
+                    <div class="card-width">
+                        <div class="card_text">
                             <ul>
-                                <li class="item_list">{{item.profileId}}</li>
-                                <li *ngIf="item.isPrimeUser" class="prime_list">{{item.profileType}}
+                                <li class="item_drop">{{item.profileId}}</li>
+                                <li *ngIf="item.isPrimeUser" class="prime_drop">{{item.profileType}}
                                     <span>
-                                        <mat-icon class="rotateIcon text-warning"> turned_in </mat-icon>
+                                        <mat-icon class="iconRotate text-warning"> turned_in </mat-icon>
                                     </span>
                                 </li>
                                 <mat-icon class="float-end">more_vert</mat-icon>
                             </ul>
                         </div>
-                        <h3 class="card-title" id="blur">{{item.profileName}}</h3>
+                        <h3 id="blur">{{item.profileName}}</h3>
                         <h5 class="card-text">{{item.age}} yrs, {{item.height}}", {{item.degree}}, {{item.caste}},
                             {{item.city}}, {{item.state}}</h5>
                     </div>
                 </div>
-                <ul class="share d-flex justify-content-between mx-1">
+                <ul class="transfer d-flex justify-content-between mx-1">
                     <span><img class="mb-1" src="../../../assets/images/skyBlueStar.png" alt="img" />
                         <li>Shortlist</li>
                     </span>
@@ -48,22 +48,28 @@
 
             </div>
         </div>
+        <div class="staticIcon fixed-bottom">
+            <button mat-fab color="primary" aria-label="Example icon button with a delete icon">
+                <mat-icon class="filterIcon">filter_alt</mat-icon>
+            </button>
+        </div>
     </div>
 
 </div>
 
-<div class="footer" *ngIf="!_footerHide">
+<div class="footer" *ngIf="!hiddenFooter">
     <ul class="d-flex justify-content-between">
         <li>
             <mat-icon class="text-muted ms-2"> home </mat-icon>
             <p> Home </p>
         </li>
         <li>
-            <mat-icon class="text-muted ms-3"> group </mat-icon>
+            <!-- <mat-icon class="text-muted ms-3"> group </mat-icon> -->
+            <img class="imgsize" src="../../../assets/images/matrimony.png">
             <p>Matches</p>
         </li>
         <li>
-            <mat-icon class="text-muted ms-1"> mail </mat-icon>
+            <mat-icon class="text-muted ms-1.5"> mail </mat-icon>
             <p> Mail </p>
         </li>
         <li>

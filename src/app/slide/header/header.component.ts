@@ -8,17 +8,17 @@ import { UserDataService } from 'src/app/shared/service/user-data.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  tabType: any = 'regular';
+  navbarType: any = 'regular';
   currentTabData: any[] = []
-  allProfiles: any;
+  totalData: any;
   tabs = [
-    { name: 'JUST JOINED', id: 'justJoined' },
-    { name: 'MATCHES', id: 'matches' },
-    { name: 'PREMIUM', id: 'premium' },
-    { name: 'MUTUAL MATCHES', id: 'mutual' }
+    { name: 'JUST JOINED', id: '1' },
+    { name: 'MATCHES', id: '2' },
+    { name: 'PREMIUM', id: '3' },
+    { name: 'MUTUAL MATCHES', id: '4' }
   ]
-  selected = 0;
-  footerHide!: boolean;
+  tabSelected = 0;
+  showFooter!: boolean;
 
   constructor(
     private service: UserDataService, private spinner: NgxSpinnerService
@@ -26,43 +26,42 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getProfileList();
+    this.getList();
   }
   switchTab(type: string) {
-    this.tabType = type;
+    this.navbarType = type;
   }
 
-  @HostListener('window:scroll', ['$event.target']) // for window scroll events
+  @HostListener('window:scroll', ['$event.target'])
+
   scrollTop(event: any) {
-   const scrollBar = event.scrollingElement.scrollTop;
-   if(scrollBar > 200) {
-     this.footerHide = true;
-1   } else {
-     this.footerHide = false;
-   }
-
+    const scrollDown = event.scrollingElement.scrollTop;
+    if (scrollDown > 250) {
+      this.showFooter = true;
+      1
+    } else {
+      this.showFooter = false;
+    }
   }
 
-  getProfileList() {
+  getList() {
     this.spinner.show();
-    this.service.getProfileInfo().subscribe((result: any) => {
+    this.service.getListInfo().subscribe((result: any) => {
       this.spinner.hide();
-      this.allProfiles = result.data
-      this.getTabList('justJoined');
+      this.totalData = result.userdata;
+      this.getTabInfo('1');
     }, err => {
       this.spinner.hide();
-      console.log('getProfileInfo', err);
     });
   }
-  getTabList(tab: string) {
-    this.currentTabData = this.allProfiles[tab];
+  getTabInfo(tab: string) {
+    this.currentTabData = this.totalData[tab];
   }
-  tabChange(event: number) {
+  specificTabSelection(event: number) {
     this.spinner.show();
     setTimeout(() => {
-      const currentTab = this.tabs[event].id
-      this.getTabList(currentTab);
+      this.getTabInfo(this.tabs[event].id);
       this.spinner.hide();
-    }, 1000)
+    }, 1000);
   }
 }

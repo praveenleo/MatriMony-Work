@@ -1,7 +1,11 @@
-.headercolor {
+.top-color {
   background-color: #ec6363;
 }
-.yesbutton {
+.tab-view button {
+  font-size: 16px;
+  padding: 2px 20px;
+}
+.Greenbutton {
   color: #fff;
   border-radius: 25px;
   border: 2px solid #dfdfdf;
@@ -10,17 +14,22 @@
   background-color: #990000;
   background-image: linear-gradient(1deg, #990000 0%, #ff0000 74%);
 }
-.tabSet {
+.tab-view {
   display: flex;
   width: fit-content;
   margin: auto;
   padding-top: 20px;
 }
-.tabSet button {
-  font-size: 16px;
-  padding: 2px 20px;
+.slideButton {
+  background-color: #f9484a;
+  background-image: linear-gradient(260deg, #f9484a 0%, #fbd72b 74%);
+  color: #fff;
+  border-radius: 25px;
+  border: 2px solid #dfdfdf;
+  position: relative;
+  z-index: 1;
 }
-.confirm {
+.support {
   background-color: #fff;
   color: #2a2a72;
   text-transform: uppercase;
@@ -36,30 +45,29 @@ button {
   margin: 0 auto;
   display: block;
 }
-.primeButton {
-  background-color: #f9484a;
-  background-image: linear-gradient(260deg, #f9484a 0%, #fbd72b 74%);
-  color: #fff;
-  border-radius: 25px;
-  border: 2px solid #dfdfdf;
-  position: relative;
-  z-index: 1;
-}
-
-* {
-  box-sizing: border-box;
-}
 html,
 body {
   margin: 0;
   padding: 0;
 }
 
-.header_bg_1 {
+* {
+  box-sizing: border-box;
+}
+
+.top-color-1 {
   background-color: #00629c;
   background-image: linear-gradient(313deg, #000000 0%, #04619f 0%);
 }
-.confirmbutton_prime {
+:host ::ng-deep {
+  .mat-tab-label,
+  .mat-tab-link {
+    color: white;
+    font-weight: bolder;
+    font-size: 19px;
+  }
+}
+.supportbutton_prime {
   background-color: #fff;
   color: black;
   text-transform: uppercase;
@@ -72,23 +80,28 @@ body {
   top: 5px;
 }
 
-:host ::ng-deep {
-  .mat-tab-label,
-  .mat-tab-link {
-    color: white;
-    font-weight: bolder;
-    font-size: 19px;
-  }
-}
-.font-size {
-  font-size: 19px;
-  font-weight: 600;
-}
 ::ng-deep{
   .mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar{
     background: #fff !important;
   }
 }
 
+.text-size {
+  font-size: 19px;
+  font-weight: 600;
+}  
+h5{
+  font-family: 'Times New Roman', Times, serif;
+}
+:host ::ng-deep {
 
-
+  .mat-tab-header-pagination {
+    display: none !important;
+  }
+  .mat-tab-label, [_nghost-yqd-c76] .mat-tab-link {
+    color: white;
+    font-weight: bolder;
+    font-size: 13px;
+    padding: 5px !important;
+}  
+}

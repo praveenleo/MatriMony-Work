@@ -1,14 +1,14 @@
-<section class="main_sec">
-    <div [ngClass]="tabType == 'regular' ? 'headercolor':'header_bg_1'">
-        <div class="tabSet">
-            <button [ngClass]="tabType == 'regular' ? 'yesbutton':'confirm'"
-                (click)="switchTab('regular')" mat-raised-button>Regular</button>
-            <button [ngClass]="tabType == 'prime' ? 'primeButton':'confirmbutton_prime'"
-                (click)="switchTab('prime')" mat-button>PRIME</button>
+<section>
+    <div [ngClass]="navbarType == 'regular' ? 'top-color':'top-color-1'">
+        <div class="tab-view">
+            <button [ngClass]="navbarType == 'regular' ? 'Greenbutton':'support'" (click)="switchTab('regular')"
+                mat-raised-button>Regular</button>
+            <button [ngClass]="navbarType == 'prime' ? 'slideButton':'supportbutton_prime'" (click)="switchTab('prime')"
+                mat-button>PRIME</button>
         </div>
-        <div class="row mt-4" *ngIf="tabType == 'regular'">
+        <div class="row mt-4 mx-0" *ngIf="navbarType == 'regular'">
             <div class="col-6">
-                <h5 class="text-white font-size ms-3">MATCHES</h5>
+                <h5 class="text-white text-size ms-3">MATCHES</h5>
             </div>
             <div class="col-6">
                 <div class="float-end">
@@ -20,12 +20,12 @@
     </div>
 
     <div ngxHideOnScroll [classNameWhenHidden]="'nav--hidden'">
-    <mat-tab-group class="headercolor" mat-align-tabs="center" *ngIf="tabType == 'regular'" [selectedIndex]="selected"
-        (selectedIndexChange)="tabChange($event)">
-        <mat-tab *ngFor="let tab of tabs" [label]="tab.name">
-            <app-regular-slide [footerHide]="footerHide" [profileList]="currentTabData"></app-regular-slide>
-        </mat-tab>
-    </mat-tab-group>
+        <mat-tab-group class="top-color" mat-align-tabs="center" *ngIf="navbarType == 'regular'"
+            [selectedIndex]="tabSelected" (selectedIndexChange)="specificTabSelection($event)">
+            <mat-tab *ngFor="let tab of tabs" [label]="tab.name">
+                <app-regular-slide [footerHide]="showFooter" [userList]="currentTabData"></app-regular-slide>
+            </mat-tab>
+        </mat-tab-group>
     </div>
-    <app-prime-slide *ngIf="tabType == 'prime'"></app-prime-slide>
+    <app-prime-slide *ngIf="navbarType == 'prime'"></app-prime-slide>
 </section>

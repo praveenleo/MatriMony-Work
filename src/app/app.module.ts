@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgxHideOnScrollModule } from 'ngx-hide-on-scroll';
 import { NgxSpinnerModule } from 'ngx-spinner';
 
+
 @NgModule({
   declarations: [
     AppComponent

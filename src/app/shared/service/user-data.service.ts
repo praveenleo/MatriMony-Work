@@ -12,7 +12,7 @@ export class UserDataService {
   constructor(private http: HttpClient) {
    }
 
-  public getProfileInfo(): Observable<any> {
+  public getListInfo(): Observable<any> {
     return this.http.get(this.url);
   }
 }

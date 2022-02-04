@@ -1,36 +1,31 @@
-.primeBackground {
-    background-color: #000000;
-    background-image: linear-gradient(300deg, #000000 0%, #04619f 55%);
-}
-.prime {
-    color: #fff;
-}
-.prime h4 {
+.slide h4 {
     text-align: center;
     margin-top: 20px;
     font-size: 17px;
     line-height: 1.5;
 }
-.prime li {
+.slideBackground {
+    background-color: #000000;
+    background-image: linear-gradient(300deg, #000000 0%, #04619f 55%);
+}
+.slide {
+    color: #fff;
+}
+.slide p {
+    text-align: right;
+    font-size: 12px;
+}
+.slide li {
     list-style-type: none;
     margin-bottom: 10px;
     font-size: 18px;
 }
-.prime p {
-    text-align: right;
-    font-size: 12px;
-}
-.prime h5 {
+.slide h5 {
     margin-left: 15px;
     margin-top: 25px;
     margin-bottom: 20px;
 }
-
-.regular {
-    background: #fff;
-    padding: 30px;
-}
-.regular button {
+.continuesly button {
     background-color: #45bdee;
     border: none;
     color: #fff;
@@ -39,27 +34,33 @@
     margin-bottom: 30px;
     margin-top: 5px;
 }
-.regular h5 {
+
+.continuesly {
+    background: #fff;
+    padding: 30px;
+}
+.continuesly h5 {
     margin-bottom: 25px;
     color: #292929;
     font-weight: 400;
 }
-.prime_span {
+.slide_span {
     color: #8231d6;
     font-weight: 500;
 }
-
-.prime li::before {
-    content: url("../../../assets/images/star.png");
-    position: absolute;
-    left: 30px;
-}
-
-
 @media (min-width: 1400px){
 
     .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
         max-width: 100%;
     }
 
+}
+
+.slide li::before {
+    content: url("../../../assets/images/star.png");
+    position: absolute;
+    left: 30px;
+}
+h4{
+    font-family: 'Times New Roman', Times, serif;
 }

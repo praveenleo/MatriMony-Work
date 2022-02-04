@@ -6,30 +6,23 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./regular-slide.component.scss']
 })
 export class RegularSlideComponent implements OnInit {
-  @Input() profileList: any[] = [];
-  _footerHide: any;
+  @Input() userList: any[] = [];
+  hiddenFooter: any;
 
   @Input()
   set footerHide(res: any) {
-    this._footerHide = res;
+    this.hiddenFooter = res;
   }
 
   get footerHide(): any {
-    return this._footerHide;
+    return this.hiddenFooter;
   }
   imgCount = 50;
 
   constructor() { }
 
   ngOnInit(): void {
-    // $(window).scroll(() => {
-    //   if ($(this).scrollTop() > 300) {
-    //     $('.headercolor').addClass('scroll_page');
-    //     console.log('the footer is givne as;');
-    //   } else {
-    //     $('.headercolor').removeClass('scroll_page');
-    //   }
-    // });
+ 
   }
 
 
