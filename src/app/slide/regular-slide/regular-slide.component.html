@@ -1,0 +1,78 @@
+<div class="match">
+    <div class="row mt-4">
+        <div class="col-8">
+            <h4>12 New Members Who match your profile information</h4>
+        </div>
+        <div class="icons col-4">
+            <button mat-raised-button>
+                <mat-icon>edit</mat-icon> Edit
+            </button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3" *ngFor="let item of profileList; index as i">
+            <div class="cardWrapper shadow px-2 bg-white rounded">
+                <div class="card-flex">
+                    <div class="card_img">
+                        <img class="ms-2 mt-3" src="https://picsum.photos/300/200/?random={{ i + imgCount}}"
+                            alt="Card image">
+                    </div>
+                    <div class="card-description ">
+                        <div class="card_title">
+                            <ul>
+                                <li class="item_list">{{item.profileId}}</li>
+                                <li *ngIf="item.isPrimeUser" class="prime_list">{{item.profileType}}
+                                    <span>
+                                        <mat-icon class="rotateIcon text-warning"> turned_in </mat-icon>
+                                    </span>
+                                </li>
+                                <mat-icon class="float-end">more_vert</mat-icon>
+                            </ul>
+                        </div>
+                        <h3 class="card-title" id="blur">{{item.profileName}}</h3>
+                        <h5 class="card-text">{{item.age}} yrs, {{item.height}}", {{item.degree}}, {{item.caste}},
+                            {{item.city}}, {{item.state}}</h5>
+                    </div>
+                </div>
+                <ul class="share d-flex justify-content-between mx-1">
+                    <span><img class="mb-1" src="../../../assets/images/skyBlueStar.png" alt="img" />
+                        <li>Shortlist</li>
+                    </span>
+                    <span><img src="../../../assets/images/comment.png" alt="img" />
+                        <li>2 Wks ago</li>
+                    </span>
+                    <span><img src="../../../assets/images/roundTick.png" alt="img" />
+                        <li>Send Interest</li>
+                    </span>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="footer" *ngIf="!_footerHide">
+    <ul class="d-flex justify-content-between">
+        <li>
+            <mat-icon class="text-muted ms-2"> home </mat-icon>
+            <p> Home </p>
+        </li>
+        <li>
+            <mat-icon class="text-muted ms-3"> group </mat-icon>
+            <p>Matches</p>
+        </li>
+        <li>
+            <mat-icon class="text-muted ms-1"> mail </mat-icon>
+            <p> Mail </p>
+        </li>
+        <li>
+            <mat-icon class="text-muted ms-2"> search </mat-icon>
+            <p> Search </p>
+        </li>
+        <li>
+            <mat-icon class="text-muted ms-2"> person </mat-icon>
+            <p> Profile </p>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,65 @@
+.primeBackground {
+    background-color: #000000;
+    background-image: linear-gradient(300deg, #000000 0%, #04619f 55%);
+}
+.prime {
+    color: #fff;
+}
+.prime h4 {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 17px;
+    line-height: 1.5;
+}
+.prime li {
+    list-style-type: none;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+.prime p {
+    text-align: right;
+    font-size: 12px;
+}
+.prime h5 {
+    margin-left: 15px;
+    margin-top: 25px;
+    margin-bottom: 20px;
+}
+
+.regular {
+    background: #fff;
+    padding: 30px;
+}
+.regular button {
+    background-color: #45bdee;
+    border: none;
+    color: #fff;
+    padding: 5px 20px;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    margin-top: 5px;
+}
+.regular h5 {
+    margin-bottom: 25px;
+    color: #292929;
+    font-weight: 400;
+}
+.prime_span {
+    color: #8231d6;
+    font-weight: 500;
+}
+
+.prime li::before {
+    content: url("../../../assets/images/star.png");
+    position: absolute;
+    left: 30px;
+}
+
+
+@media (min-width: 1400px){
+
+    .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+        max-width: 100%;
+    }
+
+}
