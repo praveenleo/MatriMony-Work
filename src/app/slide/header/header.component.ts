@@ -8,17 +8,17 @@ import { UserDataService } from 'src/app/shared/service/user-data.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  navbarType: any = 'regular';
-  currentTabData: any[] = []
-  totalData: any;
-  tabs = [
-    { name: 'JUST JOINED', id: '1' },
-    { name: 'MATCHES', id: '2' },
-    { name: 'PREMIUM', id: '3' },
-    { name: 'MUTUAL MATCHES', id: '4' }
+  navbarType: any = 'default';
+  defaultTabData: tabAlign | any;
+  totalData: totalUsers | any;
+  headerlist = [
+    { tab_display_name: 'JUST JOINED', id: '1' },
+    { tab_display_name: 'MATCHES', id: '2' },
+    { tab_display_name: 'PREMIUM', id: '3' },
+    { tab_display_name: 'MUTUAL MATCHES', id: '4' }
   ]
   tabSelected = 0;
-  showFooter!: boolean;
+  showFooter! : boolean;
 
   constructor(
     private service: UserDataService, private spinner: NgxSpinnerService
@@ -48,20 +48,30 @@ export class HeaderComponent implements OnInit {
     this.spinner.show();
     this.service.getListInfo().subscribe((result: any) => {
       this.spinner.hide();
-      this.totalData = result.userdata;
+      this.totalData = result.userdata as totalUsers;
       this.getTabInfo('1');
     }, err => {
       this.spinner.hide();
     });
   }
   getTabInfo(tab: string) {
-    this.currentTabData = this.totalData[tab];
+    this.defaultTabData = this.totalData[tab] as tabAlign;
   }
   specificTabSelection(event: number) {
     this.spinner.show();
     setTimeout(() => {
-      this.getTabInfo(this.tabs[event].id);
+      this.getTabInfo(this.headerlist[event].id);
       this.spinner.hide();
     }, 1000);
   }
 }
+
+interface tabAlign {
+  currentTabData: any [];
+}
+interface totalUsers {
+  dataList: any [];
+}
+
+
+
