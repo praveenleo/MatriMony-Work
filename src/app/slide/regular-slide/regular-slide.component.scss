@@ -259,4 +259,39 @@ h3,h5{
   position: relative;
   bottom: 7px !important;
 }
+.prime{
+  display: inline-block;
+  background-color: #ffc105 !important;
+  padding: 3px 9px;
+  border-radius: 14px;
+  width: 50px;
+  text-transform: capitalize;
+  position: absolute;
+  bottom: 0px;
+  right: calc(80% / 2);
+  // right: 29px;
+}
 
+@media(max-width: 375px) {
+  .prime {
+    right: calc(100/3.14) !important;
+  }
+}
+@media(min-width: 345px) {
+  .prime {
+    // bottom: -10px !important;
+    // right: 45px !important;
+  }
+}
+@media(max-width: 768px) {
+  .prime {
+    // bottom: -3px !important;
+    // right: 35px !important;
+  }
+}
+
+@media(max-width: 425px) {
+  .prime {
+    // right: 45px !important;
+  }
+}
